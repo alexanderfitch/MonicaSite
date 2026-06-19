@@ -1,0 +1,26 @@
+---
+// Top navigation. Pass `active` to highlight the current page.
+const { active = '' } = Astro.props;
+
+const links = [
+  { href: '/',                       label: 'Home',                key: 'home' },
+  { href: '/the-family-narrative/',  label: 'The Family Narrative', key: 'novel' },
+  { href: '/about/',                 label: 'About Monica',        key: 'about' },
+  { href: '/writing/',               label: 'Writing',             key: 'writing' },
+  { href: '/newsletter/',            label: 'Newsletter',          key: 'newsletter' },
+];
+---
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="brand">Monica Messer</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      {links.map((l) => (
+        <li><a href={l.href} class={active === l.key ? 'active' : ''}>{l.label}</a></li>
+      ))}
+    </ul>
+  </div>
+</header>

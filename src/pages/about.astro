@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+
+<BaseLayout
+  active="about"
+  title="About Monica Messer — Author"
+  description="From building companies to telling the truth about women's lives. Monica Messer on her second chapter and the inquiry behind The Family Narrative."
+>
+  <!-- INTRO (Card 9 expanded) -->
+  <section class="hero">
+    <div class="container split">
+      <div class="split-media">
+        <img src="/assets/author-portrait.jpg" alt="Portrait of Monica Messer" class="cover-img portrait" style="max-width:340px;" />
+      </div>
+      <div class="split-copy">
+        <p class="eyebrow">About Monica</p>
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);">From building companies to telling the truth about women's lives.</h1>
+        <p class="lede">
+          For decades, Monica Messer built, led, managed, and measured success. Now her writing
+          turns toward what does not show up on a balance sheet: the quiet decisions, hidden costs,
+          and private reckonings that shape a woman's life.
+        </p>
+        <p>
+          <em>The Family Narrative</em> grows out of that same inquiry — what we choose not to see,
+          what it costs to keep performing, and what becomes possible when we finally look.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRST CHAPTER — NASDAQ proof -->
+  <section class="bg-sand">
+    <div class="container split reverse">
+      <div class="split-copy">
+        <p class="eyebrow">The First Chapter</p>
+        <h2>A career measured in results.</h2>
+        <p>
+          Before the novel, there was the work the world could see: companies built, teams led,
+          and milestones reached — including the kind of moment that ends with your name on a screen
+          in Times Square. That chapter gave Monica a clear-eyed understanding of money, power, and
+          the stories institutions tell to protect themselves.
+        </p>
+        <p>
+          It also gave her the questions she writes about now — the ones that live underneath the
+          measurable success.
+        </p>
+      </div>
+      <div class="split-media">
+        <img src="/assets/nasdaq.jpg" alt="Monica Messer at the NASDAQ in Times Square" class="cover-img" style="max-width:420px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND CHAPTER -->
+  <section>
+    <div class="container narrow">
+      <p class="eyebrow">The Second Chapter</p>
+      <h2>Now, the truth about women's lives.</h2>
+      <p>
+        Monica writes domestic literary fiction about women at the moment they stop managing
+        everyone else's story and begin telling the truth about their own. Her work returns,
+        again and again, to clarity, financial awareness, courage, friendship, and the difference
+        between loyalty and complicity.
+      </p>
+      <p>
+        <em>The Family Narrative</em>, her debut novel, follows Frances Stanton as a divorce filing,
+        a university scandal, and a collapsing financial reality force her to question the admired
+        family story she has spent decades preserving.
+      </p>
+      <div class="btn-group">
+        <a href="/the-family-narrative/" class="btn btn-primary">Read About the Novel</a>
+        <a href="/newsletter/" class="btn btn-outline">Read My Story</a>
+      </div>
+    </div>
+  </section>
+
+  <Newsletter />
+</BaseLayout>

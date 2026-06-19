@@ -1,0 +1,20 @@
+---
+// Pull-quote break (Card 8).
+// `quotes` is an array of strings; if more than one, they rotate on a timer.
+// `extraClass` lets callers tint the background (e.g. "bg-sand").
+const { quotes = [], extraClass = '' } = Astro.props;
+const first = quotes[0] ?? '';
+const rotate = quotes.length > 1;
+---
+
+<section class={`pullquote ${extraClass}`.trim()}>
+  <div class="container">
+    {rotate ? (
+      <div class="quote-rotator" data-quote-rotator data-quotes={JSON.stringify(quotes)}>
+        <blockquote>{first}</blockquote>
+      </div>
+    ) : (
+      <blockquote>{first}</blockquote>
+    )}
+  </div>
+</section>

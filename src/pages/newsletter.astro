@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PullQuote from '../components/PullQuote.astro';
+---
+
+<BaseLayout
+  active="newsletter"
+  title="Newsletter — Monica Messer"
+  description="Join Monica Messer's newsletter for honest writing about reinvention, clarity, money, and truth — plus updates on The Family Narrative."
+>
+  <!-- FULL-PAGE NEWSLETTER (Card 10) -->
+  <section style="padding-top:96px;">
+    <div class="container narrow center">
+      <p class="eyebrow">Newsletter</p>
+      <h1>Join Monica's newsletter</h1>
+      <p class="lede measure">
+        Honest writing about reinvention, clarity, money, truth, and the courage to start over —
+        plus updates on <em>The Family Narrative</em>. No noise. Just ideas worth sitting with.
+      </p>
+
+      <div style="max-width:520px;margin:36px auto 0;">
+        <form class="nl-form" novalidate>
+          <input type="text" name="name" placeholder="Name" aria-label="Name" />
+          <input type="email" name="email" placeholder="Email" aria-label="Email" required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <p class="nl-micro">No spam, ever. Unsubscribe anytime.</p>
+        <div class="nl-success"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL GET -->
+  <section class="bg-sand tight">
+    <div class="container">
+      <div class="grid-cards">
+        <div class="theme-card">
+          <h3>Novel updates</h3>
+          <p>Cover reveals, preorder news, and launch details for <em>The Family Narrative</em>.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Essays &amp; ideas</h3>
+          <p>Short, honest writing about money, clarity, friendship, and starting over.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Book club extras</h3>
+          <p>Discussion questions and reading materials as they become available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <PullQuote quotes={['The women who tell you the truth are the ones worth keeping.']} />
+</BaseLayout>

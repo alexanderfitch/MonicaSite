@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+import PullQuote from '../components/PullQuote.astro';
+
+const quotes = [
+  'She could carry the name. She would not carry the lie.',
+  'Some stories protect a family. Some protect the people who harmed it.',
+  'Every family has a story. Not every family tells the truth.',
+];
+---
+
+<BaseLayout
+  active="novel"
+  title="The Family Narrative — A Novel by Monica Messer"
+  description="The Family Narrative is Monica Messer's debut novel — a story of marriage, money, reputation, motherhood, and the moment a woman stops protecting a story that was never really hers."
+>
+  <!-- HERO / SHORT SYNOPSIS (Card 3) -->
+  <section class="hero">
+    <div class="container split">
+      <div class="split-media">
+        <img src="/assets/book-cover.png" alt="The Family Narrative by Monica Messer" class="cover-img" />
+      </div>
+      <div class="split-copy">
+        <p class="eyebrow">Debut Novel</p>
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);">A novel about reputation, marriage, money, and the moment a woman stops protecting a story that was never really hers.</h1>
+        <p class="lede">
+          Frances Stanton knows how to keep a life looking intact. She understands schedules,
+          appearances, family obligations, and the invisible work required to make powerful
+          people feel protected. When Dick files for divorce, she thinks the marriage is the crisis.
+        </p>
+        <p>
+          But as financial reality, family loyalty, and institutional reputation collide, Frances
+          begins to understand that the story the Stanton family wants to tell no longer matches
+          the truth she and her sons are living. Now she must decide whether safety is worth the
+          silence it requires.
+        </p>
+        <div class="btn-group">
+          <a href="/newsletter/" class="btn btn-primary">Join the Newsletter for Updates</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK COVER COPY (Card 4) -->
+  <section class="bg-sand">
+    <div class="container narrow backcover">
+      <p class="eyebrow center">From the back cover</p>
+      <h2 class="center">How much of a family's truth can be hidden inside a beautiful life?</h2>
+      <p class="drop">
+        For decades, Frances Stanton has lived inside a family story everyone else admired.
+        Her husband, Dick, is the heir to one of Northern California's most prominent university
+        families. The Stanton name means success, philanthropy, loyalty, and legacy. Frances has
+        built a life around preserving that image — for her husband, for their sons, and for the
+        institution that bears his family's name.
+      </p>
+      <p>Then Dick files for divorce.</p>
+      <p>
+        At first, Frances believes the end of her marriage is the crisis she must survive. But as
+        the carefully polished Stanton narrative begins to crack, she discovers that the story
+        everyone wanted her to protect has been protecting something else. The house, the accounts,
+        the reputation, the friendships, the public statements — everything that once made her feel
+        secure begins to reveal another truth.
+      </p>
+      <p>
+        <em>The Family Narrative</em> is a novel about a woman learning to distinguish loyalty from
+        complicity, protection from control, and survival from silence. It is a story of marriage,
+        money, motherhood, female friendship, and the courage it takes to stop carrying a story that
+        harms the people you love.
+      </p>
+    </div>
+  </section>
+
+  <!-- THEMES GRID — full (Card 5) -->
+  <section>
+    <div class="container">
+      <div class="section-head center">
+        <p class="eyebrow">Inside The Family Narrative</p>
+        <h2>Six threads running through the novel</h2>
+      </div>
+      <div class="grid-cards">
+        <div class="theme-card">
+          <h3>Marriage &amp; reputation</h3>
+          <p>What does a wife owe a marriage once the truth is no longer private?</p>
+        </div>
+        <div class="theme-card">
+          <h3>Money &amp; dependence</h3>
+          <p>Financial reality becomes impossible to ignore when the life Frances trusted begins to collapse.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Motherhood &amp; moral clarity</h3>
+          <p>Frances's sons force her to see what adults have been willing to minimize.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Female friendship</h3>
+          <p>The women on the porch do not rescue Frances. They help her hear herself.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Power &amp; institutions</h3>
+          <p>The university, the donors, and the family all know how to protect themselves.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Truth &amp; reinvention</h3>
+          <p>Starting over begins with saying what is real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE (Card 8) -->
+  <PullQuote quotes={quotes} extraClass="bg-sand2" />
+
+  <!-- READER PROMISE (Card 6) -->
+  <section>
+    <div class="container narrow center">
+      <p class="eyebrow">For readers who…</p>
+      <h2>Love emotionally honest fiction about women's lives after the performance stops.</h2>
+      <p class="lede measure">
+        Drawn to domestic literary fiction, complicated marriages, family systems, moral reckonings,
+        women in midlife, mother-son relationships, financial awakening, and the kind of friendship
+        that tells the truth even when it hurts.
+      </p>
+    </div>
+  </section>
+
+  <!-- BOOK CLUB (Card 7) -->
+  <section class="bg-slate">
+    <div class="container narrow">
+      <p class="eyebrow" style="color:#C9A96B;">For Book Clubs</p>
+      <h2>A story made for the conversations women are finally ready to have.</h2>
+      <p>
+        <em>The Family Narrative</em> opens questions women often carry privately:
+      </p>
+      <ul class="qlist" style="color:#EDE6DA;">
+        <li style="border-color:#475561;">What did I agree to without realizing it?</li>
+        <li style="border-color:#475561;">What did I know but not want to see?</li>
+        <li style="border-color:#475561;">When does loyalty become self-erasure?</li>
+        <li style="border-color:#475561;">How much financial reality did I understand in my own life?</li>
+        <li style="border-color:#475561;">What do we owe our children when the truth threatens the life we built?</li>
+      </ul>
+      <div class="btn-group" style="margin-top:32px;">
+        <a href="/newsletter/" class="btn btn-light">Request Book Club Materials</a>
+      </div>
+      <p style="font-size:.85rem;color:#A89E91;margin-top:18px;">
+        Discussion questions, an author Q&amp;A, and a printable one-sheet are on the way.
+      </p>
+    </div>
+  </section>
+
+  <!-- PLACEHOLDER LINKS (preorder / retailers / press kit) -->
+  <section>
+    <div class="container">
+      <div class="section-head center">
+        <p class="eyebrow">Coming Soon</p>
+        <h2>Where to find the book</h2>
+        <p class="measure" style="margin:0 auto;">Preorder and retailer links will appear here as the launch approaches. Join the newsletter to be the first to know.</p>
+      </div>
+      <div class="placeholder-row">
+        <div class="ph-item">
+          <span class="label">Preorder</span>
+          <div class="note">Link coming soon</div>
+        </div>
+        <div class="ph-item">
+          <span class="label">Amazon &amp; Goodreads</span>
+          <div class="note">Listings coming soon</div>
+        </div>
+        <div class="ph-item">
+          <span class="label">Press Kit</span>
+          <div class="note">Available on request soon</div>
+        </div>
+        <div class="ph-item">
+          <span class="label">Book Club Materials</span>
+          <div class="note">Discussion guide in progress</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Newsletter />
+</BaseLayout>

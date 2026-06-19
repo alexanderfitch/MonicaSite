@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+import PullQuote from '../components/PullQuote.astro';
+
+// Placeholder essays. Replace these with real posts as they're published.
+const essays = [
+  {
+    tag: 'On Clarity',
+    title: 'The difference between loyalty and complicity',
+    blurb: 'Where does devotion end and self-erasure begin? Notes on the line so many women are taught not to see.',
+  },
+  {
+    tag: 'On Money',
+    title: "What I didn't understand about my own finances",
+    blurb: 'Financial awareness as an act of self-respect — and what it costs to look away from the numbers.',
+  },
+  {
+    tag: 'On Friendship',
+    title: 'The women who tell you the truth',
+    blurb: 'Why the friends worth keeping are the ones who help you hear yourself, even when it hurts.',
+  },
+];
+---
+
+<BaseLayout
+  active="writing"
+  title="Writing — Monica Messer"
+  description="Essays and notes from Monica Messer on reinvention, clarity, money, truth, and the courage to start over."
+>
+  <!-- INTRO -->
+  <section class="tight">
+    <div class="container narrow center" style="padding-top:40px;">
+      <p class="eyebrow">Writing</p>
+      <h1>Essays on reinvention, clarity, and telling the truth.</h1>
+      <p class="lede measure">
+        Short pieces about money, motherhood, friendship, and the quiet work of looking at what is
+        real — the same questions that shape <em>The Family Narrative</em>. New essays are on the way.
+      </p>
+    </div>
+  </section>
+
+  <!-- PLACEHOLDER ESSAY GRID -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="essay-grid">
+        {essays.map((e) => (
+          <article class="essay-card">
+            <span class="tag">{e.tag}</span>
+            <h3>{e.title}</h3>
+            <p>{e.blurb}</p>
+            <span class="coming">Essay coming soon</span>
+          </article>
+        ))}
+      </div>
+      <div class="center" style="margin-top:48px;">
+        <p class="measure" style="margin:0 auto 24px;color:var(--muted);">
+          Want these essays in your inbox as they're published?
+        </p>
+        <a href="/newsletter/" class="btn btn-primary">Join My Newsletter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE (Card 8) -->
+  <PullQuote
+    quotes={['Clarity is not a destination. It is a daily practice of choosing to look at what is real.']}
+    extraClass="bg-sand"
+  />
+
+  <Newsletter />
+</BaseLayout>

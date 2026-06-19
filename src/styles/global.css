@@ -1,0 +1,445 @@
+/* =========================================================
+   Monica Messer — Author Website
+   Design tokens + shared styles
+   ========================================================= */
+
+:root {
+  /* Palette — warm neutrals */
+  --ivory:   #FBF8F3;
+  --sand:    #EFE8DD;
+  --sand-2:  #E4DACB;
+  --ink:     #211D1A;
+  --ink-soft:#4A433D;
+  --muted:   #756B60;
+  --gold:    #9A7B4F;
+  --gold-dk: #836849;
+  --slate:   #2C3640;
+  --slate-2: #38444F;
+  --line:    #DED4C5;
+
+  /* Type */
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Layout */
+  --maxw: 1120px;
+  --maxw-narrow: 760px;
+  --radius: 4px;
+  --shadow: 0 18px 50px rgba(33, 29, 26, 0.12);
+  --shadow-sm: 0 6px 20px rgba(33, 29, 26, 0.08);
+}
+
+/* ---------- Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  background: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--gold-dk); text-decoration: none; transition: color .2s ease; }
+a:hover { color: var(--ink); }
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.12;
+  margin: 0 0 .4em;
+  letter-spacing: .003em;
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 500; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; }
+h3 { font-size: 1.5rem; }
+
+p { margin: 0 0 1.1em; }
+
+.eyebrow {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: .74rem;
+  font-weight: 600;
+  color: var(--gold-dk);
+  margin: 0 0 1.1rem;
+}
+
+/* ---------- Layout helpers ---------- */
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+.narrow { max-width: var(--maxw-narrow); }
+
+section { padding: 96px 0; }
+section.tight { padding: 64px 0; }
+
+.bg-sand  { background: var(--sand); }
+.bg-sand2 { background: var(--sand-2); }
+.bg-slate { background: var(--slate); color: #E9E2D7; }
+.bg-slate h1, .bg-slate h2, .bg-slate h3 { color: #FBF8F3; }
+
+.center { text-align: center; }
+.lede { font-size: 1.22rem; color: var(--ink-soft); }
+.measure { max-width: 640px; }
+.center .measure { margin-left: auto; margin-right: auto; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: .92rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all .2s ease;
+  text-align: center;
+}
+.btn-primary { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+.btn-primary:hover { background: var(--gold-dk); border-color: var(--gold-dk); color: #fff; }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--ivory); }
+.btn-light { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+.btn-light:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+.btn[disabled], .btn.is-disabled {
+  opacity: .5; cursor: not-allowed; pointer-events: none;
+}
+.btn-group { display: flex; flex-wrap: wrap; gap: 14px; }
+.center .btn-group { justify-content: center; }
+
+/* ---------- Announcement bar ---------- */
+.announce {
+  background: var(--slate);
+  color: #E9E2D7;
+  text-align: center;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+}
+.announce a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251, 248, 243, 0.92);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: .01em;
+}
+.brand:hover { color: var(--ink); }
+.nav-links { display: flex; align-items: center; gap: 30px; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+  font-size: .9rem; font-weight: 500; color: var(--ink-soft);
+  letter-spacing: .01em;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-links a.active { border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
+
+.nav-toggle {
+  display: none; background: none; border: 0; cursor: pointer;
+  width: 40px; height: 40px; padding: 8px;
+}
+.nav-toggle span {
+  display: block; height: 2px; background: var(--ink); margin: 5px 0;
+  transition: transform .25s ease, opacity .2s ease;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero { padding: 92px 0 84px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero h1 { margin-bottom: .35em; }
+.hero .lede { max-width: 33ch; }
+.hero-media { position: relative; }
+.portrait {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  filter: grayscale(100%);
+}
+/* book-feature panel beside the portrait */
+.book-chip {
+  position: absolute;
+  right: -26px; bottom: -34px;
+  width: 200px;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  display: flex; gap: 14px; align-items: center;
+}
+.book-chip img { width: 56px; border-radius: 2px; box-shadow: var(--shadow-sm); }
+.book-chip .label { font-size: .68rem; text-transform: uppercase; letter-spacing: .14em; color: var(--gold-dk); font-weight: 600; }
+.book-chip .title { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); line-height: 1.1; }
+
+/* ---------- Feature: book + text split ---------- */
+.split {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+.split.reverse { grid-template-columns: 1.2fr .8fr; }
+.split.reverse .split-media { order: 2; }
+.cover-img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+}
+.split-media { display: flex; justify-content: center; }
+
+/* ---------- Themes grid ---------- */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.theme-card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+.bg-sand .theme-card { background: #fff; }
+.theme-card h3 { font-size: 1.3rem; margin-bottom: .4em; }
+.theme-card p { font-size: .98rem; color: var(--muted); margin: 0; }
+
+/* ---------- Pull quote ---------- */
+.pullquote { text-align: center; }
+.pullquote blockquote {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 auto;
+  max-width: 18ch;
+  font-style: italic;
+}
+.pullquote .quote-rotator { min-height: 1px; }
+.pullquote cite {
+  display: block; margin-top: 1.2rem; font-family: var(--sans);
+  font-style: normal; font-size: .8rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gold-dk);
+}
+
+/* ---------- Back-cover copy block ---------- */
+.backcover p { font-size: 1.12rem; line-height: 1.85; }
+.backcover .drop::first-letter {
+  font-family: var(--serif); float: left; font-size: 4.4rem;
+  line-height: .8; padding: 6px 12px 0 0; color: var(--gold-dk);
+}
+
+/* ---------- Book club / promise ---------- */
+.qlist { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.qlist li {
+  font-family: var(--serif); font-size: 1.45rem; font-style: italic;
+  color: var(--ink); padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.qlist li:last-child { border-bottom: 0; }
+
+/* ---------- Placeholder link row ---------- */
+.placeholder-row {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  margin-top: 8px;
+}
+.ph-item {
+  border: 1px dashed var(--sand-2);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  background: #fff;
+}
+.ph-item .label { font-weight: 600; color: var(--ink); }
+.ph-item .note { font-size: .82rem; color: var(--muted); margin-top: 4px; }
+
+/* ---------- Newsletter block ---------- */
+.newsletter { background: var(--sand); }
+.newsletter .inner {
+  max-width: 620px; margin: 0 auto; text-align: center;
+}
+.nl-form {
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  margin-top: 26px;
+}
+.nl-form input {
+  flex: 1 1 200px;
+  font-family: var(--sans); font-size: 1rem;
+  padding: 14px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+}
+.nl-form input:focus { outline: none; border-color: var(--gold); }
+.nl-form .btn { flex: 0 0 auto; }
+.nl-micro { font-size: .82rem; color: var(--muted); margin-top: 14px; }
+.nl-success {
+  display: none; margin-top: 20px; padding: 16px 20px;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  font-family: var(--serif); font-size: 1.3rem; color: var(--ink);
+}
+.nl-success.show { display: block; }
+
+/* ---------- Writing (placeholder essays) ---------- */
+.essay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.essay-card {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px 28px; display: flex; flex-direction: column;
+}
+.essay-card .tag { font-size: .72rem; text-transform: uppercase; letter-spacing: .14em; color: var(--gold-dk); font-weight: 600; margin-bottom: 12px; }
+.essay-card h3 { font-size: 1.35rem; }
+.essay-card .coming { margin-top: auto; padding-top: 16px; font-size: .82rem; color: var(--muted); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--slate);
+  color: #C9C0B4;
+  padding: 60px 0 40px;
+  font-size: .92rem;
+}
+.footer-grid {
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  gap: 30px; align-items: flex-start;
+}
+.site-footer .brand { color: #fff; font-size: 1.4rem; }
+.footer-tag { max-width: 320px; margin-top: 10px; color: #A89E91; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin: 0; }
+.footer-nav a { color: #C9C0B4; font-size: .9rem; }
+.footer-nav a:hover { color: #fff; }
+.footer-bottom {
+  margin-top: 42px; padding-top: 22px; border-top: 1px solid var(--slate-2);
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between;
+  font-size: .8rem; color: #8E8478;
+}
+
+/* ---------- Generic intro spacing ---------- */
+.section-head { max-width: 640px; margin-bottom: 48px; }
+.center .section-head { margin-left: auto; margin-right: auto; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+  .hero-media { max-width: 380px; margin: 0 auto; }
+  .book-chip { right: 0; }
+  .split, .split.reverse { grid-template-columns: 1fr; gap: 40px; }
+  .split.reverse .split-media { order: 0; }
+  .grid-cards, .essay-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 17px; }
+  section { padding: 68px 0; }
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: absolute; top: 72px; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 0;
+    background: var(--ivory); border-bottom: 1px solid var(--line);
+    padding: 8px 28px 20px;
+    display: none;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 14px 0; width: 100%; border-bottom: 1px solid var(--line); }
+  .nav-links a.active { border-bottom: 1px solid var(--line); }
+  .grid-cards, .essay-grid, .placeholder-row { grid-template-columns: 1fr; }
+  .footer-grid { flex-direction: column; }
+}
+
+/* =========================================================
+   Motion — light, tasteful interactivity.
+   Everything below is gated on `.motion-ok`, which is only
+   added when the visitor has NOT requested reduced motion.
+   ========================================================= */
+
+/* ---- Scroll reveal: sections fade up as they enter view ---- */
+.motion-ok main > section {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .7s cubic-bezier(.22, .61, .36, 1),
+              transform .7s cubic-bezier(.22, .61, .36, 1);
+  will-change: opacity, transform;
+}
+.motion-ok main > section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+/* Once revealed, drop the hint so fixed/sticky children behave normally */
+.motion-ok main > section.is-visible { will-change: auto; }
+
+/* ---- Button micro-interactions: a subtle lift ---- */
+.motion-ok .btn { transition: background .2s ease, color .2s ease, border-color .2s ease,
+                              transform .18s ease, box-shadow .2s ease; }
+.motion-ok .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.motion-ok .btn:active { transform: translateY(0); box-shadow: none; }
+
+/* ---- Card hover: gentle raise on theme + essay cards ---- */
+.motion-ok .theme-card,
+.motion-ok .essay-card {
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.motion-ok .theme-card:hover,
+.motion-ok .essay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--sand-2);
+}
+
+/* ---- Book cover: faint lift when hovered ---- */
+.motion-ok .cover-img { transition: transform .35s ease, box-shadow .35s ease; }
+.motion-ok .split-media:hover .cover-img { transform: translateY(-4px) scale(1.01); }
+
+/* ---- Nav + footer links: animated underline reveal ---- */
+.nav-links a, .footer-nav a { position: relative; }
+.motion-ok .nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px;
+  height: 2px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease;
+}
+.motion-ok .nav-links a:hover::after { transform: scaleX(1); }
+.motion-ok .nav-links a.active::after { transform: scaleX(1); }
+/* the underline replaces the static active border so they don't double up */
+.motion-ok .nav-links a.active { border-bottom: 0; padding-bottom: 4px; }
+
+/* ---- Page transition tuning (Astro View Transitions) ---- */
+@view-transition { navigation: auto; }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: .35s; }
+
+/* ---- Respect reduced-motion: disable page transition animation too ---- */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}

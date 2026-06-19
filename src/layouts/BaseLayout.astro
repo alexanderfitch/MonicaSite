@@ -1,0 +1,143 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+
+const {
+  title = 'Monica Messer — Author of The Family Narrative',
+  description = "Monica Messer writes fiction about women at the moment they stop managing everyone else's story and begin telling the truth about their own. Her debut novel is The Family Narrative.",
+  active = '',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Enable motion only when the visitor hasn't asked for reduced motion.
+       Set before paint so reveal animations never leave content stuck hidden. -->
+  <script is:inline>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('motion-ok');
+    }
+  </script>
+
+  <!-- Smooth animated transitions between pages -->
+  <ClientRouter />
+</head>
+<body>
+  <!-- Announcement bar (Card 12) -->
+  <div class="announce">
+    Coming Soon — <em>The Family Narrative</em>, the debut novel from Monica Messer.
+    <a href="/newsletter/">Get updates&nbsp;&rarr;</a>
+  </div>
+
+  <Nav active={active} />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+
+  <script>
+    // Timers / observers we create per page, so we can tear them down on navigation.
+    let timers: number[] = [];
+    let observer: IntersectionObserver | null = null;
+
+    function teardown() {
+      timers.forEach((id) => clearInterval(id));
+      timers = [];
+      if (observer) { observer.disconnect(); observer = null; }
+    }
+
+    function init() {
+      // ---- Mobile nav toggle ----
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', () => {
+          const open = links.classList.toggle('open');
+          toggle.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        links.addEventListener('click', (e) => {
+          if (e.target instanceof HTMLAnchorElement) {
+            links.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // ---- Newsletter forms (placeholder — no backend yet) ----
+      // See README.md to connect a real provider (Mailchimp / Kit / Substack).
+      document.querySelectorAll<HTMLFormElement>('.nl-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const success = form.parentNode?.querySelector('.nl-success');
+          const nameInput = form.querySelector<HTMLInputElement>('input[name="name"]');
+          const name = nameInput ? nameInput.value : '';
+          form.style.display = 'none';
+          if (success) {
+            const first = name.trim().split(' ')[0];
+            success.textContent = first
+              ? `Thank you, ${first} — you're on the list.`
+              : "Thank you — you're on the list.";
+            success.classList.add('show');
+          }
+        });
+      });
+
+      // ---- Pull-quote rotator ----
+      const rotator = document.querySelector('[data-quote-rotator]');
+      if (rotator) {
+        let quotes: string[] | null = null;
+        try { quotes = JSON.parse(rotator.getAttribute('data-quotes') || 'null'); }
+        catch { quotes = null; }
+        const bq = rotator.querySelector('blockquote') as HTMLElement | null;
+        if (quotes && quotes.length > 1 && bq) {
+          let i = 0;
+          bq.style.transition = 'opacity .4s ease';
+          const id = window.setInterval(() => {
+            i = (i + 1) % quotes!.length;
+            bq.style.opacity = '0';
+            setTimeout(() => { bq.textContent = quotes![i]; bq.style.opacity = '1'; }, 400);
+          }, 6000);
+          timers.push(id);
+        }
+      }
+
+      // ---- Scroll reveal (gentle fade-up as sections enter the viewport) ----
+      const sections = document.querySelectorAll('main > section');
+      const motionOk = document.documentElement.classList.contains('motion-ok');
+      if (!motionOk || !('IntersectionObserver' in window)) {
+        sections.forEach((s) => s.classList.add('is-visible'));
+      } else {
+        observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+        sections.forEach((s) => observer!.observe(s));
+      }
+    }
+
+    // Runs on first load and after every animated page transition.
+    document.addEventListener('astro:page-load', init);
+    // Clean up before the next page swaps in.
+    document.addEventListener('astro:before-swap', teardown);
+  </script>
+</body>
+</html>
