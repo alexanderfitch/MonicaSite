@@ -359,7 +359,8 @@ section.tight { padding: 64px 0; }
 
 /* ---------- Generic intro spacing ---------- */
 .section-head { max-width: 640px; margin-bottom: 48px; }
-.center .section-head { margin-left: auto; margin-right: auto; }
+.center .section-head,
+.section-head.center { margin-left: auto; margin-right: auto; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
