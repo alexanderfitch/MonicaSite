@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const pdf = '/downloads/the-family-narrative-act-one.pdf';
+---
+
+<BaseLayout
+  active="novel"
+  title="Read Act One — The Family Narrative by Monica Messer"
+  description="Start reading Act One of The Family Narrative, the debut novel from Monica Messer — read it here or download the PDF."
+>
+  <!-- INTRO -->
+  <section class="tight">
+    <div class="container narrow center" style="padding-top:40px;">
+      <p class="eyebrow">The Family Narrative &middot; Act One</p>
+      <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);">Start reading now.</h1>
+      <p class="lede measure">
+        Step inside the opening act of <em>The Family Narrative</em>. Read it in your browser below,
+        download the PDF to keep, or listen to the audio when it's ready.
+      </p>
+      <div class="btn-group center">
+        <a href={pdf} class="btn btn-primary" download>Download the PDF</a>
+        <a href="#listen" class="btn btn-outline">Listen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMBEDDED READER -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="pdf-frame">
+        <iframe src={`${pdf}#view=FitH`} title="The Family Narrative — Act One" loading="lazy"></iframe>
+      </div>
+      <p class="center" style="margin-top:18px;color:var(--muted);font-size:.9rem;">
+        Trouble viewing? <a href={pdf} download>Download Act One as a PDF</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- LISTEN -->
+  <section id="listen" class="bg-sand">
+    <div class="container narrow center">
+      <p class="eyebrow">Listen</p>
+      <h2>An audio edition of Act One is on the way.</h2>
+      <p class="lede measure">
+        Prefer to listen? An audio recording of Act One is in production. Join the newsletter and
+        you'll be the first to hear it.
+      </p>
+      <div class="btn-group center">
+        <a href="/newsletter/" class="btn btn-primary">Notify Me When Audio Is Ready</a>
+      </div>
+    </div>
+  </section>
+
+  <Newsletter />
+</BaseLayout>

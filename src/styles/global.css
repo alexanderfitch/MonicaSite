@@ -265,7 +265,7 @@ section.tight { padding: 64px 0; }
 .qlist { list-style: none; padding: 0; margin: 1.5rem 0 0; }
 .qlist li {
   font-family: var(--serif); font-size: 1.45rem; font-style: italic;
-  color: var(--ink); padding: 14px 0; border-bottom: 1px solid var(--line);
+  color: inherit; padding: 14px 0; border-bottom: 1px solid var(--line);
 }
 .qlist li:last-child { border-bottom: 0; }
 
@@ -304,6 +304,7 @@ section.tight { padding: 64px 0; }
 .nl-form input:focus { outline: none; border-color: var(--gold); }
 .nl-form .btn { flex: 0 0 auto; }
 .nl-micro { font-size: .82rem; color: var(--muted); margin-top: 14px; }
+.nl-hp { position: absolute; left: -5000px; }
 .nl-success {
   display: none; margin-top: 20px; padding: 16px 20px;
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
@@ -320,6 +321,19 @@ section.tight { padding: 64px 0; }
 .essay-card .tag { font-size: .72rem; text-transform: uppercase; letter-spacing: .14em; color: var(--gold-dk); font-weight: 600; margin-bottom: 12px; }
 .essay-card h3 { font-size: 1.35rem; }
 .essay-card .coming { margin-top: auto; padding-top: 16px; font-size: .82rem; color: var(--muted); }
+
+/* ---------- PDF reader (Act One) ---------- */
+.pdf-frame {
+  width: 100%;
+  height: min(82vh, 900px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  background: var(--sand);
+}
+.pdf-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+@media (max-width: 720px) { .pdf-frame { height: 70vh; } }
 
 /* ---------- Footer ---------- */
 .site-footer {

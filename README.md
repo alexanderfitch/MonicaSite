@@ -50,25 +50,44 @@ public/
   paths. The portrait is shown in grayscale via CSS (`filter: grayscale(100%)`).
 - **Pull-quotes:** pass a `quotes={[...]}` array to `<PullQuote />`; more than one rotates automatically.
 
-## Newsletter forms — IMPORTANT
+## Newsletter forms — collecting names & emails
 
-The signup forms are **placeholders**. On submit they show a "thank you" message but do **not**
-store the email anywhere. The form markup lives in `src/components/Newsletter.astro` (and inline on
+The signup forms are wired for **[Netlify Forms](https://docs.netlify.com/forms/setup/)**, so when
+the site is deployed to Netlify every submission (name + email) is captured automatically and can be
+viewed/exported as a CSV from **Netlify → your site → Forms → `newsletter`**. No server or extra
+account is required. The form markup lives in `src/components/Newsletter.astro` (and inline on
 `src/pages/newsletter.astro`); the submit handling is the `.nl-form` block in
-`src/layouts/BaseLayout.astro`. To make them live:
+`src/layouts/BaseLayout.astro` (it AJAX-posts to Netlify and shows an inline thank-you).
+
+A hidden honeypot field (`bot-field`) filters out basic spam.
+
+**Hosting note:** form capture only works on **Netlify**. The page still shows the thank-you message
+anywhere, but submissions are only stored when hosted on Netlify. To use a different provider instead:
 
 - **Mailchimp / Kit (ConvertKit):** replace the `<form>` with the provider's embed code, or point
-  the form `action` at their POST URL and remove the `.nl-form` `preventDefault` handler in the layout.
+  the form `action` at their POST URL and remove the `.nl-form` handler in the layout.
 - **Substack:** simplest — swap the form for a link/button to your Substack page.
 
 Because the form is a shared component, you only edit it once.
 
+## Reading & downloads
+
+- **Read Act One:** `src/pages/read.astro` (`/read/`) embeds the Act One PDF and offers a download,
+  plus a placeholder "Listen" section for the forthcoming audio edition.
+- **Downloadable PDFs** live in `public/downloads/`:
+  - `the-family-narrative-act-one.pdf` — linked from the book page's "Start Reading Now" button.
+  - `the-family-narrative-book-club-guide.pdf` — the immediate "Download the Discussion Guide" on the
+    book page (no longer gated behind the newsletter).
+- **Audio (to-do):** when an MP3 of Act One is ready, drop it in `public/downloads/` and replace the
+  "Listen" placeholder section in `src/pages/read.astro` with an `<audio controls>` element.
+
 ## To-do as assets become available
 
 - Replace placeholder retailer/preorder links on the book page (Amazon, Goodreads, preorder,
-  press kit, book club materials).
+  press kit).
 - Add real essays to `src/pages/writing.astro` (replace the three placeholder cards).
-- Connect the newsletter forms (see above).
+- Add the Act One audio (MP3) and wire up the "Listen" section (see *Reading & downloads*).
+- Deploy to Netlify to activate name/email capture (see *Newsletter forms*).
 
 ## Deploying
 

@@ -12,7 +12,16 @@
         Honest writing about reinvention, clarity, money, truth, and the courage to start over —
         plus updates on <em>The Family Narrative</em>. No noise. Just ideas worth sitting with.
       </p>
-      <form class="nl-form" novalidate>
+      <form
+        class="nl-form"
+        name="newsletter"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        novalidate
+      >
+        <input type="hidden" name="form-name" value="newsletter" />
+        <p class="nl-hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
         <input type="text" name="name" placeholder="Name" aria-label="Name" />
         <input type="email" name="email" placeholder="Email" aria-label="Email" required />
         <button type="submit" class="btn btn-primary">Subscribe</button>

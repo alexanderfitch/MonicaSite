@@ -78,22 +78,39 @@ const {
         });
       }
 
-      // ---- Newsletter forms (placeholder — no backend yet) ----
-      // See README.md to connect a real provider (Mailchimp / Kit / Substack).
+      // ---- Newsletter forms ----
+      // Submissions POST to Netlify Forms (captured to a downloadable list in the
+      // Netlify dashboard). The AJAX submit keeps the inline thank-you message and
+      // degrades gracefully if the site isn't hosted on Netlify. See README.md to
+      // swap in another provider (Mailchimp / Kit / Substack).
       document.querySelectorAll<HTMLFormElement>('.nl-form').forEach((form) => {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
+          const email = form.querySelector<HTMLInputElement>('input[name="email"]');
+          if (email && !email.checkValidity()) { email.reportValidity(); return; }
+
           const success = form.parentNode?.querySelector('.nl-success');
           const nameInput = form.querySelector<HTMLInputElement>('input[name="name"]');
           const name = nameInput ? nameInput.value : '';
-          form.style.display = 'none';
-          if (success) {
-            const first = name.trim().split(' ')[0];
-            success.textContent = first
-              ? `Thank you, ${first} — you're on the list.`
-              : "Thank you — you're on the list.";
-            success.classList.add('show');
-          }
+
+          const showThanks = () => {
+            form.style.display = 'none';
+            if (success) {
+              const first = name.trim().split(' ')[0];
+              success.textContent = first
+                ? `Thank you, ${first} — you're on the list.`
+                : "Thank you — you're on the list.";
+              success.classList.add('show');
+            }
+          };
+
+          // Post to Netlify Forms (form-urlencoded). Show the thank-you either way.
+          const body = new URLSearchParams(new FormData(form) as any).toString();
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body,
+          }).catch(() => {}).finally(showThanks);
         });
       });
 

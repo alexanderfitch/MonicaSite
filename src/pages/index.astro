@@ -9,6 +9,34 @@ const heroQuotes = [
   'Some stories protect a family. Some protect the people who harmed it.',
   'Starting over is not failure. It is the most courageous act available to a woman who finally knows herself.',
 ];
+
+// The work, distilled — the ideas Monica returns to again and again.
+const values = [
+  {
+    title: 'Truth',
+    body: 'Everything I write begins here: helping women see what they have been trained not to look at.',
+  },
+  {
+    title: 'Clarity',
+    body: 'Seeing things as they are — not as we were taught, promised, or pressured to see them — is the beginning of every good decision.',
+  },
+  {
+    title: 'Financial Awareness',
+    body: 'Money is not a dirty word. Silence around it can be devastating. Women deserve full, honest knowledge of their financial lives.',
+  },
+  {
+    title: 'Courage',
+    body: 'Not the loud kind. The quiet, daily courage to name what is true, leave what no longer fits, and begin again.',
+  },
+  {
+    title: 'Friendship',
+    body: 'The women worth keeping are the ones who can comfort you without helping you hide.',
+  },
+  {
+    title: 'Reinvention',
+    body: 'Starting over is not failure. Sometimes it is the first honest decision a woman gets to make for herself.',
+  },
+];
 ---
 
 <BaseLayout active="home">
@@ -19,10 +47,8 @@ const heroQuotes = [
         <p class="eyebrow">Author &middot; Debut Novel</p>
         <h1>Every family has a story. Not every family tells the truth.</h1>
         <p class="lede">
-          Monica Messer writes fiction about women at the moment they stop managing
-          everyone else's story and begin telling the truth about their own. Her debut novel,
-          <em>The Family Narrative</em>, explores marriage, money, motherhood, reputation,
-          female friendship, and the quiet cost of looking away.
+          Monica Messer writes emotionally rich fiction about women, families, reputation,
+          reinvention, and the stories people inherit before they learn how to question them.
         </p>
         <div class="btn-group">
           <a href="/the-family-narrative/" class="btn btn-primary">Explore The Family Narrative</a>
@@ -31,13 +57,6 @@ const heroQuotes = [
       </div>
       <div class="hero-media">
         <img src="/assets/author-portrait.jpg" alt="Portrait of author Monica Messer" class="portrait" />
-        <div class="book-chip">
-          <img src="/assets/book-cover.png" alt="The Family Narrative book cover" />
-          <div>
-            <div class="label">Debut Novel</div>
-            <div class="title">The Family Narrative</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -52,15 +71,13 @@ const heroQuotes = [
         <p class="eyebrow">Debut Novel</p>
         <h2>The Family Narrative</h2>
         <p>
-          For decades, Frances Stanton has lived inside a family story everyone else admired:
-          a respected husband, accomplished sons, university circles, philanthropic events, and
-          a name that meant success, loyalty, and legacy. Then Dick files for divorce.
+          Her debut novel, <em>The Family Narrative</em>, explores marriage, motherhood, money,
+          legacy, and one woman's decision to stop protecting a story that was never fully hers.
         </p>
         <p>
-          At first, Frances believes the end of her marriage is the crisis she must survive.
-          But as the polished Stanton narrative begins to crack, she discovers what the family
-          has protected, what the institution has minimized, and what it has cost her to keep
-          looking away.
+          For decades, Frances Stanton has lived inside a family story everyone else admired —
+          a respected husband, accomplished sons, university circles, and a name that meant success
+          and legacy. Then Dick files for divorce, and the polished Stanton narrative begins to crack.
         </p>
         <div class="btn-group">
           <a href="/the-family-narrative/" class="btn btn-primary">Read About the Novel</a>
@@ -69,29 +86,20 @@ const heroQuotes = [
     </div>
   </section>
 
-  <!-- INSIDE THE NOVEL — condensed themes (Card 5) -->
+  <!-- WHAT THE WORK IS ABOUT — values (anchor line + cards) -->
   <section>
     <div class="container">
       <div class="section-head center">
-        <p class="eyebrow">Inside the Novel</p>
-        <h2>The questions at its center</h2>
+        <p class="eyebrow">What the work is about</p>
+        <h2>Helping women see what they have been trained not to look at.</h2>
       </div>
-      <div class="grid-cards">
-        <div class="theme-card">
-          <h3>Marriage &amp; reputation</h3>
-          <p>What does a wife owe a marriage once the truth is no longer private?</p>
-        </div>
-        <div class="theme-card">
-          <h3>Motherhood &amp; moral clarity</h3>
-          <p>Frances's sons force her to see what adults have been willing to minimize.</p>
-        </div>
-        <div class="theme-card">
-          <h3>Truth &amp; reinvention</h3>
-          <p>Starting over begins with saying what is real.</p>
-        </div>
-      </div>
-      <div class="center" style="margin-top:40px;">
-        <a href="/the-family-narrative/" class="btn btn-outline">See all the themes</a>
+      <div class="grid-cards values-cards">
+        {values.map((v) => (
+          <div class="theme-card">
+            <h3>{v.title}</h3>
+            <p>{v.body}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -121,13 +129,11 @@ const heroQuotes = [
     <div class="container split reverse">
       <div class="split-copy">
         <p class="eyebrow" style="color:#C9A96B;">The Author</p>
-        <h2>From building companies to telling the truth about women's lives.</h2>
+        <h2>Forty years in leadership — and a deep interest in power and reinvention.</h2>
         <p>
-          For decades, Monica Messer built, led, managed, and measured success. Now her writing
-          turns toward what does not show up on a balance sheet: the quiet decisions, hidden costs,
-          and private reckonings that shape a woman's life. <em>The Family Narrative</em> grows out
-          of that same inquiry — what we choose not to see, what it costs to keep performing, and
-          what becomes possible when we finally look.
+          After more than forty years in leadership roles, Monica brings a deep interest in power,
+          perception, decision-making, and personal reinvention to her fiction. She lives in Omaha,
+          Nebraska, with her husband, and regularly spends time writing in Los Angeles and Belize.
         </p>
         <div class="btn-group">
           <a href="/about/" class="btn btn-light">About Monica</a>

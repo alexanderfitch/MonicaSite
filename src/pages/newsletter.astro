@@ -19,7 +19,16 @@ import PullQuote from '../components/PullQuote.astro';
       </p>
 
       <div style="max-width:520px;margin:36px auto 0;">
-        <form class="nl-form" novalidate>
+        <form
+          class="nl-form"
+          name="newsletter"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="newsletter" />
+          <p class="nl-hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
           <input type="text" name="name" placeholder="Name" aria-label="Name" />
           <input type="email" name="email" placeholder="Email" aria-label="Email" required />
           <button type="submit" class="btn btn-primary">Subscribe</button>
