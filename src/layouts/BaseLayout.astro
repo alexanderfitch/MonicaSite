@@ -8,6 +8,7 @@ const {
   title = 'Monica Messer — Author of The Family Narrative',
   description = "Monica Messer writes fiction about women at the moment they stop managing everyone else's story and begin telling the truth about their own. Her debut novel is The Family Narrative.",
   active = '',
+  bodyClass = '',
 } = Astro.props;
 ---
 
@@ -33,7 +34,7 @@ const {
   <!-- Smooth animated transitions between pages -->
   <ClientRouter />
 </head>
-<body>
+<body class={bodyClass}>
   <!-- Announcement bar (Card 12) -->
   <div class="announce">
     Coming Soon — <em>The Family Narrative</em>, the debut novel from Monica Messer.

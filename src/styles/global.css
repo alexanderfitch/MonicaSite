@@ -448,6 +448,69 @@ section.tight { padding: 64px 0; }
 /* the underline replaces the static active border so they don't double up */
 .motion-ok .nav-links a.active { border-bottom: 0; padding-bottom: 4px; }
 
+/* =========================================================
+   Homepage dark theme (.home-dark on <body>)
+   ========================================================= */
+.home-dark { background: var(--slate); color: #C9C0B4; }
+
+/* Announce bar — deeper so it reads as a distinct bar */
+.home-dark .announce { background: #1A262F; }
+
+/* Nav */
+.home-dark .site-header {
+  background: rgba(44, 54, 64, 0.96);
+  border-bottom-color: #3A4A56;
+}
+.home-dark .brand { color: #FBF8F3; }
+.home-dark .brand:hover { color: #fff; }
+.home-dark .nav-links a { color: #C9C0B4; }
+.home-dark .nav-links a:hover,
+.home-dark .nav-links a.active { color: #FBF8F3; }
+
+/* Headings & body copy */
+.home-dark h1, .home-dark h2, .home-dark h3 { color: #FBF8F3; }
+.home-dark .lede { color: #D4CCC3; }
+.home-dark .eyebrow { color: var(--gold); }
+
+/* Alternating section backgrounds */
+.home-dark .bg-sand  { background: var(--slate-2); color: #C9C0B4; }
+.home-dark .bg-sand2 { background: #303B46;        color: #C9C0B4; }
+.home-dark .bg-sand h1,  .home-dark .bg-sand h2,  .home-dark .bg-sand h3,
+.home-dark .bg-sand2 h1, .home-dark .bg-sand2 h2, .home-dark .bg-sand2 h3 { color: #FBF8F3; }
+
+/* Author section — bg-slate: deepen so it reads distinct from base */
+.home-dark .bg-slate { background: #222E38; }
+
+/* Pull quote — text must be light on dark bg */
+.home-dark .pullquote blockquote { color: #FBF8F3; }
+
+/* Value cards */
+.home-dark .theme-card { background: var(--slate-2); border-color: #3D4C58; }
+.home-dark .theme-card h3 { color: #FBF8F3; }
+.home-dark .theme-card p  { color: #A89E91; }
+
+/* Buttons — invert primary so it has contrast on dark bg */
+.home-dark .btn-primary { background: #E9E2D7; border-color: #E9E2D7; color: var(--slate); }
+.home-dark .btn-primary:hover { background: #fff; border-color: #fff; color: var(--slate); }
+.home-dark .btn-outline { color: #E9E2D7; border-color: #E9E2D7; }
+.home-dark .btn-outline:hover { background: #E9E2D7; color: var(--slate); }
+
+/* Newsletter block */
+.home-dark .newsletter { background: var(--slate-2); }
+.home-dark .newsletter h2 { color: #FBF8F3; }
+.home-dark .newsletter p  { color: #C9C0B4; }
+.home-dark .nl-form input {
+  background: var(--slate); border-color: #3D4C58; color: #E9E2D7;
+}
+.home-dark .nl-form input::placeholder { color: #6A7A86; }
+.home-dark .nl-form input:focus { border-color: var(--gold); }
+.home-dark .nl-micro { color: #7A8A96; }
+.home-dark .nl-success { background: var(--slate); border-color: #3D4C58; color: #FBF8F3; }
+
+/* Footer */
+.home-dark .site-footer { background: #1A262F; }
+.home-dark .footer-tag { color: #6A7A86; }
+
 /* ---- Page transition tuning (Astro View Transitions) ---- */
 @view-transition { navigation: auto; }
 ::view-transition-old(root),
