@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const email = 'monica@monicamesser.com';
+---
+
+<BaseLayout
+  active="contact"
+  title="Contact — Monica Messer"
+  description="Contact Monica Messer — debut novelist and author of The Family Narrative."
+>
+  <section style="padding-top:96px;">
+    <div class="container narrow center">
+      <p class="eyebrow">Contact</p>
+      <h1>Get in touch</h1>
+      <p class="lede measure">
+        For literary inquiries, speaking requests, or general correspondence, please use the form below
+        or email Monica directly.
+      </p>
+      <p class="contact-email">
+        <a href={`mailto:${email}`}>{email}</a>
+      </p>
+
+      <form
+        class="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        novalidate
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="nl-hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <input type="text" name="name" placeholder="Name" aria-label="Name" required />
+        <input type="email" name="email" placeholder="Email" aria-label="Email" required />
+        <textarea name="message" placeholder="Message" aria-label="Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+      <div class="form-success"></div>
+    </div>
+  </section>
+</BaseLayout>

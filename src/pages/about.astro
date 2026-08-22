@@ -1,14 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Newsletter from '../components/Newsletter.astro';
 ---
 
 <BaseLayout
   active="about"
   title="About Monica Messer — Author"
-  description="Monica Messer writes emotionally layered fiction about women at turning points. After forty years in leadership, she explores power, perception, reinvention, and the space between public appearance and private truth."
+  description="Monica Messer is a debut novelist based in Omaha, Nebraska. Her completed novel, The Family Narrative, is approximately 72,000 words."
 >
-  <!-- INTRO -->
   <section class="hero">
     <div class="container split">
       <div class="split-media">
@@ -16,61 +14,30 @@ import Newsletter from '../components/Newsletter.astro';
       </div>
       <div class="split-copy">
         <p class="eyebrow">About Monica</p>
-        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);">Fiction about women at turning points.</h1>
-        <p class="lede">
-          Monica Messer writes emotionally layered fiction about women at turning points — moments
-          when the lives they have carefully built begin to reveal what they have hidden, cost, or
-          required them to ignore.
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);">Monica Messer</h1>
+        <p>
+          Monica Messer is a debut novelist based in Omaha, Nebraska. After a forty-year career in
+          technology and executive leadership, she turned her attention to fiction and to questions that
+          have interested her throughout her life: how families construct their stories, how institutions
+          protect themselves, how women navigate power and responsibility, and how the choices one
+          generation makes shape the next.
         </p>
         <p>
-          Her work explores marriage, motherhood, family systems, reinvention, financial
-          vulnerability, reputation, and the quiet ways women are asked to preserve stories that no
-          longer serve them. With a focus on intimate character journeys and morally complex choices,
-          Monica is drawn to the space between public appearance and private truth.
+          She spent much of the 1990s in Northern California during the Internet startup era, an experience
+          that informs the academic and professional world of <em>The Family Narrative</em>.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- LEADERSHIP CHAPTER — NASDAQ proof -->
-  <section class="bg-sand">
-    <div class="container split reverse">
-      <div class="split-copy">
-        <p class="eyebrow">Before the Fiction</p>
-        <h2>Forty years in leadership.</h2>
         <p>
-          Before turning to fiction, Monica spent more than forty years in leadership roles, where
-          she developed a deep interest in how people make decisions, protect institutions, manage
-          perception, and navigate power. Those questions now shape her storytelling.
+          When she isn't in Omaha, Monica spends time in Los Angeles with her daughter and siblings and at
+          her home in Belize with her husband, where she particularly loves to write.
         </p>
-      </div>
-      <div class="split-media">
-        <img src="/assets/nasdaq.jpg" alt="Monica Messer at the NASDAQ in Times Square" class="cover-img" style="max-width:420px;" />
-      </div>
-    </div>
-  </section>
-
-  <!-- PLACE & PERSPECTIVE -->
-  <section>
-    <div class="container narrow">
-      <p class="eyebrow">Place &amp; Perspective</p>
-      <h2>Writing across Omaha, Los Angeles, and Belize.</h2>
-      <p>
-        Monica lives in Omaha, Nebraska, with her husband, and regularly spends time in Los Angeles
-        and Belize. She enjoys writing in different settings and is especially interested in the way
-        place, perspective, and distance can shape a story.
-      </p>
-      <p>
-        Her debut novel, <em>The Family Narrative</em>, follows Frances Stanton, a woman whose
-        carefully maintained life begins to unravel after her husband files for divorce and the
-        admired family story she has protected for decades starts to collapse.
-      </p>
-      <div class="btn-group">
-        <a href="/the-family-narrative/" class="btn btn-primary">Read About the Novel</a>
-        <a href="/newsletter/" class="btn btn-outline">Join My Newsletter</a>
+        <p>
+          Her debut novel, <em>The Family Narrative</em>, is complete at approximately 72,000 words.
+        </p>
+        <div class="btn-group">
+          <a href="/the-family-narrative/" class="btn btn-primary">The Family Narrative</a>
+          <a href="/contact/" class="btn btn-outline">Contact</a>
+        </div>
       </div>
     </div>
   </section>
-
-  <Newsletter />
 </BaseLayout>

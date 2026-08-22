@@ -1,157 +1,143 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Newsletter from '../components/Newsletter.astro';
-import PullQuote from '../components/PullQuote.astro';
 
-const heroQuotes = [
-  'Every family has a story. Not every family tells the truth.',
-  'She could carry the name. She would not carry the lie.',
-  'Some stories protect a family. Some protect the people who harmed it.',
-  'Starting over is not failure. It is the most courageous act available to a woman who finally knows herself.',
-];
-
-// The work, distilled — the ideas Monica returns to again and again.
-const values = [
-  {
-    title: 'Truth',
-    body: 'Everything I write begins here: helping women see what they have been trained not to look at.',
-  },
+const themes = [
   {
     title: 'Clarity',
-    body: 'Seeing things as they are — not as we were taught, promised, or pressured to see them — is the beginning of every good decision.',
+    body: 'Seeing things as they are—not as we were taught, promised, or pressured to see them—is the beginning of every good decision.',
+  },
+  {
+    title: 'Reinvention',
+    body: 'Starting over is not failure. Sometimes it is the first honest decision a woman can make for herself.',
   },
   {
     title: 'Financial Awareness',
     body: 'Money is not a dirty word. Silence around it can be devastating. Women deserve full, honest knowledge of their financial lives.',
   },
   {
-    title: 'Courage',
-    body: 'Not the loud kind. The quiet, daily courage to name what is true, leave what no longer fits, and begin again.',
-  },
-  {
     title: 'Friendship',
     body: 'The women worth keeping are the ones who can comfort you without helping you hide.',
   },
   {
-    title: 'Reinvention',
-    body: 'Starting over is not failure. Sometimes it is the first honest decision a woman gets to make for herself.',
+    title: 'Courage',
+    body: 'Not the loud kind, but the quiet, daily courage to name what is true, leave what no longer fits, and begin again.',
+  },
+  {
+    title: 'Moral Ambiguity',
+    body: 'There is rarely one clean, correct way to navigate a difficult situation. Understanding a choice is not the same as excusing it.',
+  },
+  {
+    title: 'Institutional Accountability',
+    body: 'Institutions have responsibilities beyond protecting themselves. Passing a problem along does not resolve it—and institutional silence can have consequences far beyond the institution itself.',
   },
 ];
 ---
 
-<BaseLayout active="home" bodyClass="home-dark">
-  <!-- HERO (Card 1) -->
+<BaseLayout
+  active="home"
+  title="Monica Messer — Author of The Family Narrative"
+  description="Monica Messer writes character-driven fiction about women, families, and institutions. Her debut novel, The Family Narrative, is complete at approximately 72,000 words."
+>
+  <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Author &middot; Debut Novel</p>
+        <p class="eyebrow">Monica Messer</p>
+        <h1>Stories about marriage, motherhood, money, and the family narratives and legacies that shape us.</h1>
         <p class="lede">
-          Monica Messer writes emotionally rich fiction about women, families, reputation,
-          reinvention, and the stories people inherit before they learn how to question them.
-        </p>
-        <p>
-          After more than forty years in leadership roles, Monica brings a deep interest in power,
-          perception, decision-making, and personal reinvention to her fiction. She lives in Omaha,
-          Nebraska, with her husband, and regularly spends time writing in Los Angeles and Belize.
-        </p>
-        <p>
-          Her debut novel, <em>The Family Narrative</em>, explores marriage, motherhood, money,
-          legacy, and one woman's decision to stop protecting a story that was never fully hers.
+          Monica Messer writes character-driven fiction about women, families, and institutions—and the
+          moments when accepting the familiar story is no longer enough.
         </p>
         <div class="btn-group">
-          <a href="/the-family-narrative/" class="btn btn-primary">Explore The Family Narrative</a>
-          <a href="/newsletter/" class="btn btn-outline">Join My Newsletter</a>
+          <a href="/the-family-narrative/" class="btn btn-primary">The Family Narrative</a>
+          <a href="/read/" class="btn btn-outline">Read Chapter One</a>
+          <a href="/read/#listen" class="btn btn-outline">Listen to Chapter One</a>
         </div>
       </div>
       <div class="hero-media">
-        <img src="/assets/author-portrait.jpg" alt="Portrait of author Monica Messer" class="portrait" />
+        <img src="/assets/book-cover.png" alt="The Family Narrative by Monica Messer" class="cover-img" />
       </div>
     </div>
   </section>
 
-  <!-- DEBUT NOVEL FEATURE (Cards 2 + 11) -->
+  <!-- FEATURED BOOK -->
   <section class="bg-sand">
     <div class="container split">
       <div class="split-media">
         <img src="/assets/book-cover.png" alt="The Family Narrative by Monica Messer" class="cover-img" />
       </div>
       <div class="split-copy">
-        <p class="eyebrow">Debut Novel</p>
-        <h2>The Family Narrative</h2>
+        <p class="eyebrow">The Family Narrative</p>
+        <h2>Every family has a story.</h2>
         <p>
-          Her debut novel, <em>The Family Narrative</em>, explores marriage, motherhood, money,
-          legacy, and one woman's decision to stop protecting a story that was never fully hers.
+          Frances Stanton has spent decades building a life that works. A respected professor. A beautiful
+          home in Los Gatos. Two sons nearly grown. A husband whose family name opens doors at the
+          university, in the community, and in every room that matters.
         </p>
         <p>
-          For decades, Frances Stanton has lived inside a family story everyone else admired —
-          a respected husband, accomplished sons, university circles, and a name that meant success
-          and legacy. Then Dick files for divorce, and the polished Stanton narrative begins to crack.
+          Then, over lunch on her fifty-fourth birthday, Frances overhears a conversation that makes
+          her question everything she thought she knew about her marriage.
+        </p>
+        <p>
+          At first, she believes the betrayal is an affair. But as the truth surfaces, Frances discovers
+          something far larger: hidden debt, addiction, family complicity, institutional silence, and a
+          carefully protected version of the Stanton story that everyone around her seemed to understand
+          before she did.
+        </p>
+        <p>
+          When her husband files for divorce before she has even caught up to the truth, Frances is forced
+          to confront not only what he has hidden, but what she allowed herself not to examine—especially
+          the financial life she trusted him to manage.
+        </p>
+        <p>
+          To move forward, she must learn how to protect herself without losing her compassion, how to
+          tell her sons the truth without asking them to inherit its burden, and how to decide what parts
+          of the Stanton story are worth carrying forward.
+        </p>
+        <p>
+          <em>The Family Narrative</em> is a novel about marriage, money, reputation, and the stories
+          families preserve—until someone decides the truth matters more.
+        </p>
+        <p class="lede" style="margin-top:1.5em;">
+          What do we owe the stories we inherit—and what do we choose to pass on?
         </p>
         <div class="btn-group">
-          <a href="/the-family-narrative/" class="btn btn-primary">Read About the Novel</a>
+          <a href="/the-family-narrative/" class="btn btn-primary">The Family Narrative</a>
+          <a href="/read/" class="btn btn-outline">Read Chapter One</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT THE WORK IS ABOUT — values (anchor line + cards) -->
+  <!-- CORE THEMES -->
   <section>
     <div class="container">
       <div class="section-head center">
-        <p class="eyebrow">What the work is about</p>
-        <h2>Helping women see what they have been trained not to look at.</h2>
+        <p class="eyebrow">Core Themes in Monica's Writing</p>
       </div>
       <div class="grid-cards values-cards">
-        {values.map((v) => (
+        {themes.map((t) => (
           <div class="theme-card">
-            <h3>{v.title}</h3>
-            <p>{v.body}</p>
+            <h3>{t.title}</h3>
+            <p>{t.body}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- READER PROMISE (Card 6) -->
+  <!-- WHAT I'M WRITING NEXT (teaser) -->
   <section class="bg-sand2">
     <div class="container narrow center">
-      <p class="eyebrow">Is this novel for you?</p>
-      <h2>For readers who love emotionally honest fiction about women's lives after the performance stops.</h2>
+      <p class="eyebrow">What I'm Writing Next</p>
       <p class="lede measure">
-        <em>The Family Narrative</em> is for readers drawn to domestic literary fiction,
-        complicated marriages, family systems, moral reckonings, women in midlife,
-        mother-son relationships, financial awakening, and the kind of friendship that
-        tells the truth even when it hurts.
+        The questions at the heart of <em>The Family Narrative</em> continue into Monica's next novels:
+        What do we owe one another when we recognize something is wrong? When does looking away become
+        complicity? And what, intentionally or not, do we pass on to the people who come after us?
       </p>
       <div class="btn-group center">
-        <a href="/newsletter/" class="btn btn-primary">Get Book Updates</a>
+        <a href="/writing/" class="btn btn-primary">Explore What's Next</a>
       </div>
     </div>
   </section>
-
-  <!-- PULL QUOTE (Card 8) — rotating -->
-  <PullQuote quotes={heroQuotes} />
-
-  <!-- AUTHOR CONNECTION (Card 9) -->
-  <section class="bg-slate">
-    <div class="container split reverse">
-      <div class="split-copy">
-        <p class="eyebrow" style="color:#C9A96B;">The Author</p>
-        <h2>Forty years in leadership — and a deep interest in power and reinvention.</h2>
-        <p>
-          After more than forty years in leadership roles, Monica brings a deep interest in power,
-          perception, decision-making, and personal reinvention to her fiction. She lives in Omaha,
-          Nebraska, with her husband, and regularly spends time writing in Los Angeles and Belize.
-        </p>
-        <div class="btn-group">
-          <a href="/about/" class="btn btn-light">About Monica</a>
-        </div>
-      </div>
-      <div class="split-media">
-        <img src="/assets/author-portrait.jpg" alt="Monica Messer" class="cover-img" style="filter:grayscale(100%); max-width:300px;" />
-      </div>
-    </div>
-  </section>
-
-  <Newsletter />
 </BaseLayout>

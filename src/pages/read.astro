@@ -1,57 +1,79 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Newsletter from '../components/Newsletter.astro';
 
-const pdf = '/downloads/the-family-narrative-act-one.pdf';
+const audio = '/downloads/chapter-one-audio.mp3';
+
+const paragraphs = [
+  'Frances was waiting for her fifty-fourth birthday lunch when the conversation behind her stopped being none of her business.',
+  'Lila, her best friend, was still at the counter ordering.',
+  '“I still can’t believe he took you to Napa.”',
+  '“You’re not going to tell us who, are you?” another young woman asked. “He could get in trouble.”',
+  'Frances lowered the white ceramic spoon.',
+  '“Wait,” someone said. “Professor Stanton? The business law guy you’re always flirting with?”',
+  'Laughter broke across the table behind her. There were other Stantons. There had to be.',
+  '“Oh my God. How did you guess that so fast?”',
+  '“Isn’t he married?” another young woman asked.',
+  '“Yes. That’s the biggest problem. His wife’s a professor too.”',
+  'Then Frances remembered the hotel charge. Auberge du Soleil. Twenty-one hundred dollars. She and Dick had stayed there once, for their tenth anniversary. A few weeks earlier, she had noticed the charge on their credit card and asked him about it. Faculty retreat, he had said. Department budget meeting. She had accepted the explanation because it sounded plausible enough and because there had been dinner to make, papers to grade, boys who needed rides, and a hundred other things more immediate than a charge on a credit card statement.',
+  'Now the voices behind her seemed farther away, though no one had lowered them.',
+  'Lila slid into the chair across from her. “Okay, birthday girl. I ordered the sashimi salad and—” She stopped. “You okay?”',
+  'Frances looked at her best friend, then at the untouched soup between them. “I think I’m going to be sick.”',
+  'Lila’s expression changed immediately. “Restroom?”',
+  '“No.” Frances pushed back from the table. Her legs felt unreliable beneath her. “I need to leave. Your house. Please.”',
+  'Lila did not ask why.',
+  'Frances made it as far as the car before the nausea rose hard and fast. Lila got them onto the street, and Frances rolled down the window just before her stomach emptied in sharp, involuntary waves. Lila kept one hand on the wheel and passed her a napkin with the other, saying nothing until they reached her bungalow.',
+  'Inside, Frances washed her face and changed into the gray joggers and sweatshirt Lila left outside the bathroom door. When she came into the kitchen, Lila put a glass of water in front of her and sat across from her.',
+  '“What happened?”',
+  'For several seconds, Frances could not make the words come out. “I heard some girls talking at the restaurant. One of them said Dick took her to Napa.” She looked down at her hands. “She called him Professor Stanton.”',
+  '“Oh, Fran.”',
+  '“There could be another Professor Stanton.”',
+  'Lila did not answer, and Frances looked up. “Say it.”',
+  '“I’m not going to tell you what you know or don’t know. I’m letting you get there yourself.”',
+  'Frances closed her eyes. The hotel bill had seemed unusual when she saw it, unusual enough that she had asked about it, but Dick had answered without hesitation and she had allowed the matter to end there.',
+  '“Twenty-one hundred dollars,” she said. “He told me it was a faculty retreat.”',
+  '“And you believed him?”',
+  'The question hurt more than Frances expected. “I accepted it.”',
+  'Lila nodded once. She understood the difference.',
+  'For a while neither of them spoke. Frances kept hearing the laughter from the table behind her, the casualness of it, as though Dick belonged to a story other people already knew. Both she and Dick had been part of the university community for years, and the Stantons had been part of it much longer. Dick’s father had funded scholarships, faculty positions, and building campaigns. Marty and Cole had grown up among professors, administrators, and donors who knew their name before they knew the boys themselves. Frances had always thought of that reputation as a kind of inheritance, one of the quiet advantages her sons would carry into adulthood. For the first time, she wondered what happened when the same name became something people whispered.',
+  '“The boys will know something is wrong,” she said.',
+  '“Then decide what they need from you tonight,” Lila said. “Not next month. Not what happens to your marriage. Tonight.”',
+  'Frances asked Lila to cancel the birthday dinner planned with their friends. She did not have to decide what happened to her marriage that afternoon or what twenty years with Dick meant if the young woman had been telling the truth. She only had to get through the next few hours without asking her sons to carry something she could not yet explain herself.',
+];
 ---
 
 <BaseLayout
   active="novel"
-  title="Read Act One — The Family Narrative by Monica Messer"
-  description="Start reading Act One of The Family Narrative, the debut novel from Monica Messer — read it here or download the PDF."
+  title="Chapter One — The Family Narrative by Monica Messer"
+  description="Read Chapter One of The Family Narrative, Monica Messer's debut novel — or listen to the audio recording."
 >
-  <!-- INTRO -->
   <section class="tight">
     <div class="container narrow center" style="padding-top:40px;">
-      <p class="eyebrow">The Family Narrative &middot; Act One</p>
-      <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);">Start reading now.</h1>
-      <p class="lede measure">
-        Step inside the opening act of <em>The Family Narrative</em>. Read it in your browser below,
-        download the PDF to keep, or listen to the audio when it's ready.
-      </p>
-      <div class="btn-group center">
-        <a href={pdf} class="btn btn-primary" download>Download the PDF</a>
-        <a href="#listen" class="btn btn-outline">Listen</a>
-      </div>
+      <p class="eyebrow">The Family Narrative</p>
+      <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);">Chapter One</h1>
     </div>
   </section>
 
-  <!-- EMBEDDED READER -->
   <section style="padding-top:0;">
     <div class="container">
-      <div class="pdf-frame">
-        <iframe src={`${pdf}#view=FitH`} title="The Family Narrative — Act One" loading="lazy"></iframe>
+      <div class="excerpt">
+        <p class="chapter-label">Chapter One</p>
+        {paragraphs.map((p) => <p>{p}</p>)}
       </div>
-      <p class="center" style="margin-top:18px;color:var(--muted);font-size:.9rem;">
-        Trouble viewing? <a href={pdf} download>Download Act One as a PDF</a>.
+      <p class="center" style="margin-top:48px;">
+        <a href="/the-family-narrative/">Learn more about <em>The Family Narrative</em></a>
       </p>
     </div>
   </section>
 
-  <!-- LISTEN -->
   <section id="listen" class="bg-sand">
     <div class="container narrow center">
       <p class="eyebrow">Listen</p>
-      <h2>An audio edition of Act One is on the way.</h2>
-      <p class="lede measure">
-        Prefer to listen? An audio recording of Act One is in production. Join the newsletter and
-        you'll be the first to hear it.
-      </p>
-      <div class="btn-group center">
-        <a href="/newsletter/" class="btn btn-primary">Notify Me When Audio Is Ready</a>
+      <h2>Chapter One — Audio</h2>
+      <div class="audio-player">
+        <audio controls preload="metadata" src={audio}>
+          Your browser does not support the audio element.
+        </audio>
       </div>
     </div>
   </section>
-
-  <Newsletter />
 </BaseLayout>
