@@ -3,6 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const audio = '/downloads/chapter-one-audio.mp3';
 
+const prologueOne = [
+  ['Sam', 'One of the grandpas at our table has his name on the science building'],
+  ['Cole', 'Is it Phillip Packard? My grandpa has pointed out all the buildings and who paid for them.'],
+  ['Sam', 'How much you think they need to donate to get your name on a building?'],
+  ['Cole', 'No idea, but maybe someday I can have a bathroom named after me?'],
+  ['Sam', 'ha. maybe just a single stall'],
+  ['Cole', 'my dad says the trick is keeping donors drinking'],
+  ['Sam', 'pretty sure they figured that out over here at our table'],
+];
+
+const prologueTwo = [
+  ['Sam', 'do you see your grandpa is getting mobbed at the bar?'],
+  ['Cole', 'he loves this stuff'],
+  ['Sam', 'everybody acts like they know him'],
+  ['Cole', "it's the family name everyone knows."],
+];
+
 const paragraphs = [
   'Frances was waiting for her fifty-fourth birthday lunch when the conversation behind her stopped being none of her business.',
   'Lila, her best friend, was still at the counter ordering.',
@@ -56,8 +73,20 @@ const paragraphs = [
   <section style="padding-top:0;">
     <div class="container">
       <div class="excerpt">
-        <p class="chapter-label">Chapter One</p>
-        {paragraphs.map((p) => <p>{p}</p>)}
+        <p class="chapter-label">Prologue</p>
+        <p class="text-meta">September 12, 2026 · 6:00 p.m.</p>
+        <div class="text-thread">
+          {prologueOne.map(([who, msg]) => <p><span class="who">{who}:</span> {msg}</p>)}
+        </div>
+        <p class="text-meta">8:00 p.m.</p>
+        <div class="text-thread">
+          {prologueTwo.map(([who, msg]) => <p><span class="who">{who}:</span> {msg}</p>)}
+        </div>
+
+        <p class="chapter-label" style="margin-top:3rem;">Chapter One</p>
+        <div class="chapter-body">
+          {paragraphs.map((p) => <p>{p}</p>)}
+        </div>
       </div>
       <p class="center" style="margin-top:48px;">
         <a href="/the-family-narrative/">Learn more about <em>The Family Narrative</em></a>

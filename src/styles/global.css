@@ -336,14 +336,38 @@ section.tight { padding: 64px 0; }
   margin: 0 0 1.15em;
   text-indent: 1.5em;
 }
-.excerpt p:first-of-type { text-indent: 0; }
-.excerpt p:first-of-type::first-letter {
+.chapter-body p:first-of-type { text-indent: 0; }
+.chapter-body p:first-of-type::first-letter {
   font-size: 3.4rem;
   line-height: .82;
   float: left;
   padding: 4px 10px 0 0;
   color: var(--gold-dk);
 }
+.text-meta {
+  font-family: var(--sans);
+  text-align: center;
+  font-size: .82rem;
+  color: var(--muted);
+  text-indent: 0;
+  margin: 0 0 1rem;
+}
+.text-thread {
+  font-family: var(--sans);
+  font-size: .98rem;
+  line-height: 1.6;
+  background: var(--sand);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 0 0 2rem;
+}
+.text-thread p { margin: 0 0 .6em; text-indent: 0; }
+.text-thread p:last-child { margin-bottom: 0; }
+.text-thread .who { font-weight: 600; color: var(--gold-dk); }
+.home-dark .text-thread,
+.excerpt .text-thread { color: var(--ink-soft); }
+
 .excerpt .chapter-label {
   font-family: var(--sans);
   text-transform: uppercase;
@@ -604,11 +628,27 @@ section.tight { padding: 64px 0; }
 .home-dark .lede { color: #D4CCC3; }
 .home-dark .eyebrow { color: var(--gold); }
 
-/* Alternating section backgrounds */
-.home-dark .bg-sand  { background: var(--slate-2); color: #C9C0B4; }
-.home-dark .bg-sand2 { background: #303B46;        color: #C9C0B4; }
+/* Alternating section backgrounds — light sections stay genuinely light
+   even though the body default is dark, so the homepage alternates. */
+.home-dark .bg-sand,
+.home-dark .bg-sand2 { background: var(--sand); color: var(--ink-soft); }
 .home-dark .bg-sand h1,  .home-dark .bg-sand h2,  .home-dark .bg-sand h3,
-.home-dark .bg-sand2 h1, .home-dark .bg-sand2 h2, .home-dark .bg-sand2 h3 { color: #FBF8F3; }
+.home-dark .bg-sand2 h1, .home-dark .bg-sand2 h2, .home-dark .bg-sand2 h3 { color: var(--ink); }
+.home-dark .bg-sand .eyebrow,
+.home-dark .bg-sand2 .eyebrow { color: var(--gold-dk); }
+.home-dark .bg-sand .lede,
+.home-dark .bg-sand2 .lede { color: var(--ink-soft); }
+.home-dark .bg-sand2 { background: var(--sand-2); }
+
+/* Buttons inside light sections revert to the light-theme treatment */
+.home-dark .bg-sand .btn-primary,
+.home-dark .bg-sand2 .btn-primary { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+.home-dark .bg-sand .btn-primary:hover,
+.home-dark .bg-sand2 .btn-primary:hover { background: var(--gold-dk); border-color: var(--gold-dk); color: #fff; }
+.home-dark .bg-sand .btn-outline,
+.home-dark .bg-sand2 .btn-outline { color: var(--ink); border-color: var(--ink); }
+.home-dark .bg-sand .btn-outline:hover,
+.home-dark .bg-sand2 .btn-outline:hover { background: var(--ink); color: var(--ivory); }
 
 /* Author section — bg-slate: deepen so it reads distinct from base */
 .home-dark .bg-slate { background: #222E38; }
@@ -627,17 +667,19 @@ section.tight { padding: 64px 0; }
 .home-dark .btn-outline { color: #E9E2D7; border-color: #E9E2D7; }
 .home-dark .btn-outline:hover { background: #E9E2D7; color: var(--slate); }
 
-/* Newsletter block */
-.home-dark .newsletter { background: var(--slate-2); }
-.home-dark .newsletter h2 { color: #FBF8F3; }
-.home-dark .newsletter p  { color: #C9C0B4; }
+/* Newsletter block — stays on the light background, same as every other page */
+.home-dark .newsletter { background: var(--sand); }
+.home-dark .newsletter h2 { color: var(--ink); }
+.home-dark .newsletter p  { color: var(--ink-soft); }
 .home-dark .nl-form input {
-  background: var(--slate); border-color: #3D4C58; color: #E9E2D7;
+  background: #fff; border-color: var(--line); color: var(--ink);
 }
-.home-dark .nl-form input::placeholder { color: #6A7A86; }
+.home-dark .nl-form input::placeholder { color: var(--muted); }
 .home-dark .nl-form input:focus { border-color: var(--gold); }
-.home-dark .nl-micro { color: #7A8A96; }
-.home-dark .nl-success { background: var(--slate); border-color: #3D4C58; color: #FBF8F3; }
+.home-dark .nl-micro { color: var(--muted); }
+.home-dark .nl-success { background: #fff; border-color: var(--line); color: var(--ink); }
+.home-dark .newsletter .btn-primary { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+.home-dark .newsletter .btn-primary:hover { background: var(--gold-dk); border-color: var(--gold-dk); color: #fff; }
 
 /* Footer */
 .home-dark .site-footer { background: #1A262F; }

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const epub = '/downloads/the-middle-five.epub';
+---
+
+<BaseLayout
+  active="writing"
+  title="The Middle Five — Francis La Flesche, Foreword by Monica Messer"
+  description="A public-domain edition of Francis La Flesche's The Middle Five, with a new foreword by Monica Messer."
+>
+  <!-- BOOK INTRO -->
+  <section class="hero">
+    <div class="container split">
+      <div class="split-media">
+        <img src="/assets/the-middle-five-cover.png" alt="The Middle Five by Francis La Flesche, foreword by Monica Messer" class="cover-img" />
+      </div>
+      <div class="split-copy">
+        <p class="eyebrow">A Public-Domain Edition</p>
+        <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);">The Middle Five</h1>
+        <p class="lede" style="margin-top:0;">Francis La Flesche &middot; Foreword by Monica Messer</p>
+        <p>
+          Originally published by Francis La Flesche, <em>The Middle Five</em> offers a rare and deeply
+          personal account of Omaha boys navigating life at a nineteenth-century boarding school during a
+          period of profound cultural change.
+        </p>
+        <p>
+          Monica discovered La Flesche's work while researching the Omaha Tribe for a novel and was moved
+          by the wit, humanity, and historical value of his story. This edition is intended to help bring
+          La Flesche's work to modern readers while honoring his voice and perspective.
+        </p>
+        <p>
+          As you read, begin with La Flesche's original preface. It is essential to understanding the
+          spirit of the book and the world he was trying to preserve on the page.
+        </p>
+        <div class="btn-group">
+          <a href={epub} class="btn btn-primary">Download the eBook (EPUB)</a>
+          <a href="/writing/" class="btn btn-outline">Back to Writing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
