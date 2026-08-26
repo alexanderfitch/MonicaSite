@@ -50,25 +50,35 @@ public/
   paths. The portrait is shown in grayscale via CSS (`filter: grayscale(100%)`).
 - **Pull-quotes:** pass a `quotes={[...]}` array to `<PullQuote />`; more than one rotates automatically.
 
-## Newsletter forms — collecting names & emails
+## Newsletter + contact forms — collecting submissions
 
-The signup forms are wired for **[Netlify Forms](https://docs.netlify.com/forms/setup/)**, so when
-the site is deployed to Netlify every submission (name + email) is captured automatically and can be
-viewed/exported as a CSV from **Netlify → your site → Forms → `newsletter`**. No server or extra
-account is required. The form markup lives in `src/components/Newsletter.astro` (and inline on
-`src/pages/newsletter.astro`); the submit handling is the `.nl-form` block in
-`src/layouts/BaseLayout.astro` (it AJAX-posts to Netlify and shows an inline thank-you).
+Both the newsletter signup (`src/components/Newsletter.astro`, plus inline on
+`src/pages/newsletter.astro`) and the contact form (`src/pages/contact.astro`) post to
+**`/api/submit`**, a [Cloudflare Pages Function](https://developers.cloudflare.com/pages/functions/)
+at `functions/api/submit.js`. It validates the submission and emails it via
+[Resend](https://resend.com) — no database or third-party form dashboard involved. The client-side
+AJAX submit handler (shows the inline thank-you / error message) lives in the `.nl-form` /
+`.contact-form` block in `src/layouts/BaseLayout.astro`; each form also sets `action="/api/submit"`
+directly, so it still works if JavaScript fails to load.
 
-A hidden honeypot field (`bot-field`) filters out basic spam.
+A hidden honeypot field (`bot-field`) silently drops bot submissions.
 
-**Hosting note:** form capture only works on **Netlify**. The page still shows the thank-you message
-anywhere, but submissions are only stored when hosted on Netlify. To use a different provider instead:
+**One-time setup (required for submissions to actually send):**
 
-- **Mailchimp / Kit (ConvertKit):** replace the `<form>` with the provider's embed code, or point
-  the form `action` at their POST URL and remove the `.nl-form` handler in the layout.
-- **Substack:** simplest — swap the form for a link/button to your Substack page.
+1. Create a [Resend](https://resend.com) account and an API key (resend.com/api-keys).
+2. In the Cloudflare dashboard, go to **Workers & Pages → this Pages project → Settings →
+   Environment variables** and add:
+   - `RESEND_API_KEY` (encrypted) — the key from step 1.
+   - `CONTACT_TO_EMAIL` (optional) — defaults to `monica@monicamesser.com`.
+   - `CONTACT_FROM` (optional) — defaults to Resend's shared `onboarding@resend.dev` sender, which
+     works immediately with no extra setup. To send *from* `monicamesser.com` instead (recommended,
+     better deliverability), verify the domain in Resend — it will give you a few DKIM/SPF `TXT`
+     records to add in the same Cloudflare DNS zone — then set `CONTACT_FROM` to something like
+     `Monica Messer <hello@monicamesser.com>`.
+3. Redeploy (or just wait for the next deploy) so the Pages Function picks up the new environment
+   variables.
 
-Because the form is a shared component, you only edit it once.
+Because the forms and handler are shared, you only edit each once.
 
 ## Reading & downloads
 
@@ -87,13 +97,16 @@ Because the form is a shared component, you only edit it once.
   press kit).
 - Add real essays to `src/pages/writing.astro` (replace the three placeholder cards).
 - Add the Act One audio (MP3) and wire up the "Listen" section (see *Reading & downloads*).
-- Deploy to Netlify to activate name/email capture (see *Newsletter forms*).
+- Set the `RESEND_API_KEY` environment variable in Cloudflare Pages to activate form submissions
+  (see *Newsletter + contact forms*).
 
 ## Deploying
 
-`npm run build` produces a static `./dist` folder. Deploy it anywhere:
+The site is hosted on **Cloudflare Pages**, connected directly to this GitHub repo — build command
+`npm run build`, output directory `dist`. Cloudflare auto-builds and deploys on every push to `main`,
+and picks up anything in `functions/` as Pages Functions automatically (see the forms section above
+for the one env-var setup step those need). Set your domain in `astro.config.mjs` (`site:
+'https://…'`) before a build if it ever changes.
 
-- **Netlify / Vercel:** connect the Git repo — build command `npm run build`, output dir `dist`
-  (both platforms auto-detect Astro). Or drag-and-drop the built `dist/` folder.
-- **GitHub Pages / any static host:** upload the contents of `dist/`.
-- Set your domain in `astro.config.mjs` (`site: 'https://…'`) before the final build.
+`npm run build` alone produces a static `./dist` folder, so the site (minus the `/api/submit`
+Function) could also be deployed to any static host if needed.

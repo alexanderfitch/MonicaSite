@@ -1,6 +1,6 @@
 ---
-// Reusable newsletter signup block (Card 10).
-// Placeholder form — see README for wiring to a real provider.
+// Reusable newsletter signup block. Posts to /api/submit (a Cloudflare
+// Pages Function that emails the submission via Resend) — see README.
 ---
 
 <section class="newsletter">
@@ -16,8 +16,7 @@
         class="nl-form"
         name="newsletter"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
+        action="/api/submit"
         novalidate
       >
         <input type="hidden" name="form-name" value="newsletter" />
@@ -28,6 +27,7 @@
       </form>
       <p class="nl-micro">No spam, ever. Unsubscribe anytime.</p>
       <div class="nl-success"></div>
+      <div class="nl-error">Something went wrong — please try again, or email monica@monicamesser.com directly.</div>
     </div>
   </div>
 </section>

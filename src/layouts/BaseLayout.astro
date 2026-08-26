@@ -73,7 +73,7 @@ const {
         });
       }
 
-      // ---- Netlify forms (newsletter + contact) ----
+      // ---- Newsletter + contact forms (Cloudflare Pages Function → Resend) ----
       document.querySelectorAll<HTMLFormElement>('.nl-form, .contact-form').forEach((form) => {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
@@ -81,9 +81,11 @@ const {
           if (email && !email.checkValidity()) { email.reportValidity(); return; }
 
           const success = form.parentNode?.querySelector('.nl-success, .form-success');
+          const error = form.parentNode?.querySelector('.nl-error, .form-error');
           const nameInput = form.querySelector<HTMLInputElement>('input[name="name"]');
           const name = nameInput ? nameInput.value : '';
           const isContact = form.classList.contains('contact-form');
+          const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
 
           const showThanks = () => {
             form.style.display = 'none';
@@ -100,13 +102,22 @@ const {
             }
           };
 
-          // Post to Netlify Forms (form-urlencoded). Show the thank-you either way.
+          const showError = () => {
+            if (error) error.classList.add('show');
+          };
+
+          error?.classList.remove('show');
+          if (submitBtn) submitBtn.disabled = true;
+
           const body = new URLSearchParams(new FormData(form) as any).toString();
-          fetch('/', {
+          fetch(form.getAttribute('action') || '/api/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body,
-          }).catch(() => {}).finally(showThanks);
+          })
+            .then((res) => { if (res.ok) { showThanks(); } else { showError(); } })
+            .catch(() => showError())
+            .finally(() => { if (submitBtn) submitBtn.disabled = false; });
         });
       });
 

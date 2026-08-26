@@ -312,6 +312,13 @@ section.tight { padding: 64px 0; }
   font-family: var(--serif); font-size: 1.3rem; color: var(--ink);
 }
 .nl-success.show { display: block; }
+.nl-error {
+  display: none; margin-top: 16px; padding: 14px 18px;
+  background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--gold-dk);
+  border-radius: var(--radius);
+  font-family: var(--sans); font-size: .92rem; color: var(--ink-soft);
+}
+.nl-error.show { display: block; }
 
 /* ---------- Writing (placeholder essays) ---------- */
 .essay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -423,6 +430,19 @@ section.tight { padding: 64px 0; }
   color: var(--ink);
 }
 .form-success.show { display: block; }
+.form-error {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold-dk);
+  border-radius: var(--radius);
+  font-family: var(--sans);
+  font-size: .92rem;
+  color: var(--ink-soft);
+}
+.form-error.show { display: block; }
 .contact-email {
   font-family: var(--serif);
   font-size: 1.35rem;
@@ -678,6 +698,7 @@ section.tight { padding: 64px 0; }
 .home-dark .nl-form input:focus { border-color: var(--gold); }
 .home-dark .nl-micro { color: var(--muted); }
 .home-dark .nl-success { background: #fff; border-color: var(--line); color: var(--ink); }
+.home-dark .nl-error { background: #fff; border-color: var(--line); border-left-color: var(--gold-dk); color: var(--ink-soft); }
 .home-dark .newsletter .btn-primary { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
 .home-dark .newsletter .btn-primary:hover { background: var(--gold-dk); border-color: var(--gold-dk); color: #fff; }
 

@@ -23,8 +23,7 @@ import PullQuote from '../components/PullQuote.astro';
           class="nl-form"
           name="newsletter"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
+          action="/api/submit"
           novalidate
         >
           <input type="hidden" name="form-name" value="newsletter" />
@@ -35,6 +34,7 @@ import PullQuote from '../components/PullQuote.astro';
         </form>
         <p class="nl-micro">No spam, ever. Unsubscribe anytime.</p>
         <div class="nl-success"></div>
+        <div class="nl-error">Something went wrong — please try again, or email monica@monicamesser.com directly.</div>
       </div>
     </div>
   </section>

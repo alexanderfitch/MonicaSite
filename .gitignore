@@ -4,6 +4,8 @@ dist/
 node_modules/
 # astro
 .astro/
+# wrangler local dev cache
+.wrangler/
 # logs / env / os
 *.log
 .env

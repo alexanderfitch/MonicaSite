@@ -25,8 +25,7 @@ const email = 'monica@monicamesser.com';
         class="contact-form"
         name="contact"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
+        action="/api/submit"
         novalidate
       >
         <input type="hidden" name="form-name" value="contact" />
@@ -37,6 +36,7 @@ const email = 'monica@monicamesser.com';
         <button type="submit" class="btn btn-primary">Send Message</button>
       </form>
       <div class="form-success"></div>
+      <div class="form-error">Something went wrong — please try again, or email {email} directly.</div>
     </div>
   </section>
 </BaseLayout>
