@@ -203,6 +203,11 @@ section.tight { padding: 64px 0; }
   max-width: 300px;
   box-shadow: 0 30px 60px -18px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
+.hero-media .cover-img.hero-portrait {
+  max-width: 340px;
+  border-radius: var(--radius);
+  filter: grayscale(100%);
+}
 .portrait {
   width: 100%;
   border-radius: var(--radius);
@@ -565,6 +570,7 @@ section.tight { padding: 64px 0; }
   .hero h1 { max-width: none; }
   .hero-media { max-width: 380px; margin: 0 auto; }
   .hero-media .cover-img { max-width: 260px; }
+  .hero-media .cover-img.hero-portrait { max-width: 300px; }
   .book-chip { right: 0; }
   .split, .split.reverse { grid-template-columns: 1fr; gap: 40px; }
   .split.reverse .split-media { order: 0; }
